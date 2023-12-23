@@ -1,13 +1,22 @@
-<p-card header="Login">
-  <form>
-    <div class="p-field mb-4">
-      <label for="username" class="block">Username</label>
-      <input id="username" type="text" pInputText />
-    </div>
-    <div class="p-field mb-4">
-      <label for="password" class="block">Password</label>
-      <input id="password" type="password" pPassword />
-    </div>
-    <p-button label="Submit"></p-button>
-  </form>
-</p-card>
+<span
+  class="content flex align-content-center justify-content-center flex-wrap"
+>
+  <p-card header="Login">
+    <form class="pl-5 pr-5" [formGroup]="form" (ngSubmit)="login()">
+      <div class="p-field mb-4">
+        <label for="username" class="block">Username</label>
+        <input
+          formControlName="username"
+          id="username"
+          type="text"
+          pInputText
+        />
+      </div>
+      <div class="p-field mb-4">
+        <label for="password" class="block">Password</label>
+        <p-password formControlName="password" [feedback]="false"></p-password>
+      </div>
+      <p-button label="Submit" type="submit"></p-button>
+    </form>
+  </p-card>
+</span>
