@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './modules/home/home.component';
 import { authGuard } from './core/guards/auth.guard';
-import { LoginComponent } from './modules/login/login.component';
 
 export const routes: Routes = [
   {
@@ -11,7 +10,8 @@ export const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginComponent,
+    loadComponent: () =>
+      import('./modules/login/login.component').then((m) => m.LoginComponent),
   },
   {
     path: '',
